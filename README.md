@@ -24,3 +24,14 @@ Uses Linear Regression trained on a realistic Mumbai dataset.
 
 pip install pandas scikit-learn numpy
 python house_price.py
+
+### 🏏 Live Cricket Score Tracker
+Tracks live cricket scores in the terminal — supports IPL, International and Women's cricket.
+Refreshes every 30 seconds automatically. Uses ESPN public API.
+
+**Library used:** requests
+
+**How to run:**
+
+pip install requests
+python cricket_score.py
