@@ -40,20 +40,20 @@ def fetch_scores(url):
 
 # DISPLAY SCORES 
 def display(data, league_name):
-    print(f"🏏  LIVE CRICKET — {league_name}")
+    print(f" LIVE CRICKET — {league_name}")
     print(f"    Last updated: {now()}")
     print("=" * 52)
 
     # Handle errors
     if "error" in data:
-        print(f"\n  ❌ {data['error']}\n")
+        print(f"\n   {data['error']}\n")
         return
 
     events = data.get("events", [])
 
     # No matches right now
     if not events:
-        print("\n  📭 No live matches right now.")
+        print("\n   No live matches right now.")
         print("     Try again during match hours.\n")
         return
 
@@ -78,16 +78,16 @@ def display(data, league_name):
 
         # Ball-by-ball detail
         if detail:
-            print(f"\n  📊 {detail}")
+            print(f"\n  {detail}")
 
         print("  " + "─" * 48)
 
 # MAIN LOOP 
 def main():
     clear()
-    print("🏏 Cricket Score Tracker\n")
+    print("Cricket Score Tracker\n")
     print("Select league:")
-    for key, (name, _) in LEAGUES.items():
+    for key, (name, ) in LEAGUES.items():
         print(f"  {key} → {name}")
 
     choice = input("\nEnter choice (1/2/3): ").strip()
@@ -106,11 +106,11 @@ def main():
         clear()
         data = fetch_scores(url)
         display(data, league_name)
-        print(f"\n  🔄 Refreshing in {REFRESH_SECONDS}s... | Ctrl+C to quit")
+        print(f"\n Refreshing in {REFRESH_SECONDS}s... | Ctrl+C to quit")
 
         time.sleep(REFRESH_SECONDS)
 
-if __name__ == "__main__":
+if name == "main":
     try:
         main()
     except KeyboardInterrupt:
