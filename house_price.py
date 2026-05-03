@@ -60,8 +60,8 @@ df = pd.DataFrame({
     'Price_L'  : price_lakhs                       # L = Lakhs
 })
 
-print("✅ Mumbai housing dataset created!")
-print(f"   {len(df)} properties\n")
+print("Mumbai housing dataset created!")
+print(f" {len(df)} properties\n")
 print(df.head(5).to_string(index=False))
 
 # Encode locality as numbers (ML needs numbers) 
@@ -81,22 +81,22 @@ X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, random_state=42
 )
 
-print(f"📊 Training on {len(X_train)} properties")
-print(f"   Testing on  {len(X_test)} properties\n")
+print(f" Training on {len(X_train)} properties")
+print(f" Testing on  {len(X_test)} properties\n")
 
 # Train the model 
 model = LinearRegression()
 model.fit(X_train, y_train)
-print("🧠 Model trained!\n")
+print(" Model trained!\n")
 
 # Accuracy check 
 predictions = model.predict(X_test)
 error = mean_absolute_error(y_test, predictions)
-print(f"📉 Average prediction error: ₹{error:.2f} Lakhs\n")
+print(f" Average prediction error: ₹{error:.2f} Lakhs\n")
 
 # Predict your custom property 
 print("─" * 40)
-print("  🏠  Predict Mumbai Property Price")
+print("    Predict Mumbai Property Price")
 print("─" * 40)
 
 print("\nAvailable localities:")
@@ -116,8 +116,8 @@ predicted = model.predict(custom)[0]
 loc_name  = locality_map[loc_code]
 
 print(f"\n{'─'*40}")
-print(f"  📍 Locality  : {loc_name}")
-print(f"  📐 Size      : {sqft_in} sqft | {bhk_in} BHK")
-print(f"  🏢 Floor     : {floor_in} | Age: {age_in} yrs")
-print(f"  💰 Predicted : ₹{predicted:.2f} Lakhs")
+print(f"  Locality  : {loc_name}")
+print(f"  Size      : {sqft_in} sqft | {bhk_in} BHK")
+print(f"  Floor     : {floor_in} | Age: {age_in} yrs")
+print(f"  Predicted : ₹{predicted:.2f} Lakhs")
 print(f"{'─'*40}\n")
